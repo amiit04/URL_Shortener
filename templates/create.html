@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Shorten Your URL</h2>
+                    <form action="/create/" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.original_url.id_for_label }}">Original URL:</label>
+                            {{ form.original_url }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Create URL</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
